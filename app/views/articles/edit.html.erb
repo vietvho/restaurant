@@ -1,0 +1,9 @@
+
+<%= turbo_frame_tag 'c-article__form' do %>
+  <turbo-stream target="c-article__form--stream" action="replace">
+    <template>
+      <%= render partial: "articles/form", locals: { article: @article, categories: $categories } %>
+    </template>
+  </turbo-stream>
+<% end %>
+

@@ -1,0 +1,11 @@
+<% @user = User.new %>
+<div id="contact" class="">
+  <div class="u-bg--black c-contact__text-container">
+    <h2 class="u-text--primary">Contact Rails</h2>
+    <p>Rails Cafe Template is a Ruby on Rails Template.<br> 
+    Build: Warren Nguyen | Design: Tooplate </p>
+  </div>
+  <div class="u-bg--black c-contact__form-container o-align--right">
+      <%= render "users/form" ,  user: @user, subject: true, message: true %>
+  </div>
+</div>

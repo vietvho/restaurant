@@ -1,0 +1,39 @@
+
+<head>
+<title><%= yield(:title) %></title>
+<!-- Additional header tags here -->
+</head>
+<body>
+<!-- If all pages contain a headline tag, it's preferable to put that in the layout file too -->
+<h1><%= yield(:title) %></h1>
+</body>
+<%= turbo_frame_tag 'article' do %>
+    <h1><%= @article.title%></h1>
+    <p>
+    <%= @article.body %>
+    <ul>
+    <li> <%= link_to "Edit", edit_article_path(@article), data: { action: "click->post-modal#open", 'turbo-frame': 'article' } %></li>
+	
+
+    <li><%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are You Sure ?"} %></li>
+    </ul>
+    </p>
+<% end %>
+
+<h2> Comments</h2>
+
+<% 
+=begin%>
+<% @article.comments.each do |comment| %>
+    <p><strong>Commenter:</strong> <%= comment.commenter%></p>
+    <p><strong>Comment:</strong> <%= comment.body%></p>
+<% end %>
+day la doan code render comments neu viet truc tiep thay bang render nhu ben duoi luu y do |comment| duoc tu hieu neu add dung ten file _comment.html.erb
+
+<%
+=end%>
+
+<%= render @article.comments %>
+
+<h2> Add a comment</h2>
+<%= render "comments/form" %>

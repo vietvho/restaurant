@@ -1,0 +1,87 @@
+<div class="o-container">
+<div class="o-row">
+  <!-- Site Header -->
+  <div class="c-container--left">
+    <div class="c-container--left-inner">
+      <div class="o-site-header">
+        <i class="fas fa-coffee fa-3x o-site-logo"></i>
+        <h1 class="o-site-name">Rails Cafe</h1>
+      </div>
+      <nav class="c-site-nav">
+        <ul class="c-site-nav__ul">
+          <li class="c-site-nav__item">
+            <a href="/" class="c-site-nav__link active">
+              <i class="fas fa-mug-hot c-site-nav__link-icon"></i>
+              <span>Drink Menu</span>
+            </a>
+          </li>
+          <li class="c-site-nav__item">
+            <a href="/about" class="c-site-nav__link">
+              <i class="fas fa-users c-site-nav__link-icon"></i>
+              <span>About Us</span>
+            </a>
+          </li>
+          <li class="c-site-nav__item">
+            <a href="/special" class="c-site-nav__link">
+              <i class="fas fa-glass-martini c-site-nav__link-icon"></i>
+              <span>Special Items</span>
+            </a>
+          </li>
+          <li class="c-site-nav__item">
+            <a href="/contact" class="c-site-nav__link">
+              <i class="fas fa-comments c-site-nav__link-icon"></i>
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>        
+  </div>
+  <div class="c-container--right" >
+    <main class="o-main" data-controller="modal">
+      <%= turbo_frame_tag "c-article__form" %>
+      <%= render 'modal' %>
+      <div id="drink" class="" data-controller="tabs">
+        <!-- Drink Menu Page -->
+        <nav class="u-bg--black c-drinks-nav js-tabs">
+          <ul>
+            <li>
+              <%= link_to '+', new_article_path, class: "btn btn--new btn-primary", data: { action: "click->modal#new", 'turbo-frame': 'c-article__form' } %>
+            </li>
+
+            <% $categories.each_with_index  do |category, index| %>
+              <li>
+                <% active = index == 0 ? 'is-active' : ''; %>
+                <% cat_id = category.gsub(" ","_") %>
+                <a href="javascript:void(0)" class="c-tab-link <%= active%>" data-tabs-target = "tab" data-tab="<%= cat_id.underscore %>" data-action="click->tabs#change"><%= category%></a>
+              </li>
+            <% end %>
+           
+          </ul>
+        </nav>
+
+        <%= render partial: "list_item", locals: {type: 'tab_content'} %>
+
+        <!-- end Drink Menu Page -->
+      </div>
+
+      <!-- About Us Page -->
+      <%= render "regions/about" %>
+      <!-- end About Us Page -->
+
+    </main>
+  </div>    
+</div>
+<footer class="c-footer">
+  <p class="u-bg--black c-footer__text">Build:  Warren Nguyen
+  | Design: <a href="https://www.tooplate.com" class="c-footer__link" rel="sponsored" target="_parent">Tooplate</a></p>
+</footer>
+</div>
+
+<!-- Background video -->
+<div class="c-video-wrapper">
+  <i id="c-video-control-button" class="fas fa-pause"></i>
+  <video autoplay muted loop id="c-video">
+      <source src="videos/rails-cafe-video-bg.mp4" type="video/mp4">
+  </video>
+</div>

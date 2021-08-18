@@ -1,0 +1,54 @@
+<% output = {} %>
+<% @articles.each_with_index  do |article| %>
+    <% if type === 'tab_content' %>
+        <% if (article.categories.kind_of?(Array))
+            article.categories.each  do |category| %>
+                <% 
+                if (!category.empty?)
+                    if (output[category].nil?)
+                        output[category] = [];
+                    end
+                    
+                    tmp = render partial: "item_id", object: article, as: "article"
+                    output[category] << tmp 
+
+                    # endif !category.empty
+                end
+                %>
+            <% 
+            #end each categories
+            end %>
+            
+        <% else 
+
+            if (output['uncategorized'].nil?)
+                output['uncategorized'] = [];
+            end
+
+            tmp = render partial: "item_id", object: article, as: "article"
+            output['uncategorized'] << tmp 
+
+        # end of if check article.categories
+        end %>
+
+    <% else %>
+        <%= render partial: "item_id", object: article, as: "article" %> 
+    <% 
+        #end if tab_content
+    end %>
+
+   <%  # end each articles
+end %>
+<% index = 0 %>
+<% output.each do |key, tab| %>
+    <% tab_content_cls = index == 0 ? '' : 'is-hidden' %>
+    <% cat_id = key.gsub(" ","_") %>
+    <div  id="<%= cat_id.underscore %>" class="c-tabs__content <%= cat_id.underscore %> <%= tab_content_cls %>" data-tabs-target="tabPanel">
+        <div class="c-list">
+            <% tab.each do |tab_content|%>
+                <%= tab_content %>
+            <% end %>
+        </div>
+    </div>
+    <% index +=  1 %>
+<% end %>

@@ -1,0 +1,8 @@
+.c-tab {
+    &-link {
+        &.is-active {
+            color: #96FEFF;
+            border-bottom: 4px solid #96FEFF;
+        }
+    }
+}

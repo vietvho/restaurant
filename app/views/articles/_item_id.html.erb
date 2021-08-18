@@ -1,0 +1,37 @@
+
+<% if (defined?(type) && type == 'turbo_stream') %>
+<turbo-stream action="<%= action %>" targets="<%= targets %>">
+    <template>
+<% end %>
+
+<div class="c-list-item c-list-item--<%= article.id %>" id="c-list-item--<%= article.id %>"> 
+<!--imgi src="img/iced-americano.png" alt="Image" class="c-list-item-img"-->
+<% if false %>
+# bo if false de hien lai dong duoi. Dirty code :grin
+    <% if (article.categories && article.categories.kind_of?(Array)) %>
+        <% article.categories.each  do |category| %>
+            <%= category %>
+        <% end %>
+    <% end %>
+<% end %>
+<% if (article.picture) %>
+    <img src="<%= article.picture.thumb.url%>" alt="Image" class="c-list-item-img">
+<% end %>
+
+<div class="u-bg--black c-list-item-text">
+    <h3 class="c-list-item-name"><%= article.title %><span class="c-list-item-price"><%= article.price %></span></h3>
+    <p class="c-list-item-description"><%= sanitize  article.body %></p>
+    <ul class="c-list-item__nav">
+        <li>
+            <%= link_to 'Edit', edit_article_path(article), class: "btn btn-primary", data: { action: "click->modal#open", 'turbo-frame': 'c-article__form' } %>
+        </li>
+        <li><%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are You Sure ?"} %></li>
+    </ul>
+</div>
+</div>
+
+
+<% if (defined?(type) && type == 'turbo_stream') %>
+    </template>
+</turbo-stream>
+<% end %>

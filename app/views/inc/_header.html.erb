@@ -1,0 +1,40 @@
+<div class="c-container--left">
+    <div class="c-container--left-inner">
+      <div class="o-site-header">
+        <i class="fas fa-coffee fa-3x o-site-logo"></i>
+        <a href="/"><h1 class="o-site-name">ROR Cafe</h1></a>
+      </div>
+      <nav class="c-site-nav">
+        <ul class="c-site-nav__ul">
+          <li class="c-site-nav__item">
+            <a href="/" class="c-site-nav__link <%=
+            current_page?(action: 'drinks') ? 'active' : '' %>">
+              <i class="fas fa-mug-hot c-site-nav__link-icon"></i>
+              <span>Drink Menu</span>
+            </a>
+          </li>
+          <li class="c-site-nav__item">
+            <a href="/about" class="c-site-nav__link  <%=
+            current_page?(action: 'about') ? 'active' : '' %>">
+              <i class="fas fa-users c-site-nav__link-icon"></i>
+              <span>About Us</span>
+            </a>
+          </li>
+          <li class="c-site-nav__item">
+            <a href="/special" class="c-site-nav__link  <%=
+            current_page?(action: 'special') ? 'active' : '' %>">
+              <i class="fas fa-glass-martini c-site-nav__link-icon"></i>
+              <span>Special Items</span>
+            </a>
+          </li>
+          <li class="c-site-nav__item">
+            <a href="/contact" class="c-site-nav__link <%=
+            current_page?(action: 'contact') ? 'active' : '' %>">
+              <i class="fas fa-comments c-site-nav__link-icon"></i>
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>        
+  </div>

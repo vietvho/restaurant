@@ -1,0 +1,441 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    overflow-x: hidden;
+    background-color: #1E5050;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+nav > ul > li { list-style: none; }
+
+a { 
+	color: #3CF;
+    text-decoration: none;
+    transition: all 0.3s ease; 
+}
+
+p { 
+    line-height: 1.8; 
+    margin-top: 0;
+}
+
+h2 { margin-top: 0; }
+
+#c-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;    
+    z-index: -1000;
+}
+
+.c-video-wrapper { position: relative; }
+
+#c-video-control-button {
+    cursor: pointer;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.5);
+    color: white;    
+    padding: 10px;
+}
+
+.o-container { padding: 30px; }
+
+.o-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.c-container--left,
+.c-container--right {
+    width: 50%;
+}
+
+.c-container--left-inner { position: fixed; }
+
+.o-site-header {
+    background-color: white;
+    color: #099;
+    width: 100%;
+    height: 160px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+
+.o-site-logo { margin-right: 30px; }
+
+.o-site-name {
+    font-size: 2.2rem;
+    font-style: italic;    
+    color: #099;
+}
+
+.c-container--left-inner {
+    max-width: 500px;
+    width: 100%;
+}
+
+.c-site-nav__ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.c-site-nav__item { margin-top: 20px; }
+
+.c-site-nav__link{
+    min-width: 240px;
+    height: 100px;
+    background-color: white;
+    color: #099;
+    display: flex;
+    text-decoration: none;
+    align-items: center;      
+    font-size: 1.2rem;
+
+    &:hover, &.active {
+        background-color: #099;
+        color: white;
+    }
+
+    &-icon {
+        margin-right: 25px;
+        margin-left: 25px;
+        font-size: 1.5rem;
+    }
+}
+
+.is-hidden {
+    display: none;
+}
+
+.u-bg--black {
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+}
+
+.c-drinks-nav { height: 80px; }
+
+.o-main { max-width: 660px; }
+
+.c-drinks-nav > ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+
+    > li { display: inline-block; }
+
+    li > a {
+        color: white;
+        font-size: 1.2rem;
+        padding-top: 15px;
+        padding-bottom: 5px;
+        border-bottom: 3px solid transparent;
+
+        &.active, &:hover {
+            color: #96FEFF;
+            border-bottom: 4px solid #96FEFF;
+        }
+    }   
+    
+    .btn--new {
+        font-size: 35px;
+        border: solid 1px;
+        border-radius: 100%;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+}
+
+.c-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    &-2 {
+        align-items: flex-start;
+    }
+
+    &-img {
+        margin-right: 20px;
+        width: 160px;
+        height: 160px;
+        background-color: #099;
+
+        &-big {
+            margin-right: 25px;
+            width: 200px;
+            height: 200px;
+        }
+    }
+
+    &-text {
+        padding: 20px 25px;
+        flex: 1;
+
+        &-2 {
+            flex:1;
+        }
+    }
+
+    &-name {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0;
+    }
+
+    &-price {
+        color: #96FEFF;
+    }
+
+    &__nav {
+        list-style: none;
+        
+        li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    }
+}
+
+.c-footer { 
+    margin-top: 15px; 
+
+    &__text {
+        padding: 10px 65px 10px 20px;
+        display: inline-block;
+    }
+
+    &__link { color: white; }
+}
+
+.c-tabs__content { animation: fadeEffect 1s; }
+
+.u-text--primary { color: #3CC; }
+.u-mb--20 { margin-bottom: 20px; }
+.u-mb--30 { margin-bottom: 30px; }
+.u-mt--30 { margin-top: 30px; }
+.u-mt--20 { margin-top: 20px; }
+.o-img--right { 
+    margin-left: 30px; 
+    margin-right: 0;
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+/* About */
+.c-about-box-1 { padding: 40px 30px 50px 0; }
+.c-about-box-2 { padding: 50px 40px 30px; 
+    h2 {
+        line-height: 1;
+    }
+
+    img {
+        float: right;
+    }
+}
+.c-about-header { margin-left: 220px; }
+
+/* Special */
+.c-special-items {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -30px -10px 0;
+}
+
+.c-special-item {
+    max-width: 320px;
+    width: calc(50% - 20px);
+    margin: 30px 10px;
+
+    img {
+        max-width: 100%;
+    }
+
+    &-title {
+        font-size: 1.4rem;
+    }
+
+    &-description { padding: 25px 30px; }
+}
+
+
+/* Contact */
+.c-contact{
+    &__text-container {
+        padding: 45px 50px;
+        margin-bottom: 20px;  
+    }
+
+    &__form-container {
+        max-width: 460px;
+        padding: 40px 50px;
+        box-sizing: border-box;
+    }
+}
+
+.c-form__group{ margin-bottom: 25px; }
+
+.c-form__control {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #fff;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: 0;
+    border-bottom: 1px solid white;
+}
+
+.c-form__control::-webkit-input-placeholder { color: white; } /* Edge */  
+.c-form__control:-ms-input-placeholder { color: white; } /* Internet Explorer 10-11 */  
+.c-form__control::placeholder { color: white; }
+
+.c-btn{
+
+    border: 0;
+    padding: 12px 40px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+
+    &--primary, &--secondary {
+        color: #099;
+        background-color: white;
+
+        &:hover {
+            color: white;
+            background-color: #099;
+        }
+    }
+
+    &--secondary {
+        &:hover {
+            color: white;
+            background-color: #000;
+        } 
+    }
+}
+
+.o-align--right {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.c-list-item-img-thumb {
+    width: 200px;
+    height: 200px;
+}
+
+.c-list-item-img-big {
+    width: 50%;
+    height: auto;
+}
+
+.tox-tinymce {
+    width: 100%;
+}
+
+.u-mb--30 { margin-bottom: 30px; }
+
+@media (max-width: 1130px) and (min-width: 992px) {
+    .c-container--left-inner { max-width: 380px; }
+    .o-site-name { font-size: 2.6rem; }
+    .o-site-logo { margin-right: 20px; }
+    .c-site-nav__link{ width: 100%; }
+    .c-site-nav__link-icon { margin-right: 15px; }
+    .c-container--left { width: 45%; }
+    .c-container--right { width: 55%; }
+}
+
+@media (max-width: 991px) {
+    .c-container--left-inner { position: static; }
+    .c-container--left, .c-container--right { width: 100%; }
+    .c-container--left { margin-bottom: 50px; }
+    .o-row { display: block; }
+}
+
+@media (max-width: 574px) {
+    .c-list-item-img-big {
+        width: 100%;
+    }
+
+    .c-site-nav__ul { display: block; }
+}
+
+@media (max-width: 550px) and (min-width: 501px) {
+    .c-list-item-img-big {
+        width: 160px;
+        height: 160px;
+    }
+
+    .c-about-header { margin-left: 180px; }
+}
+
+@media (max-width: 500px) {
+    .c-about-header { margin-left: 0; }
+    .c-list-item-2 { flex-direction: column; }
+    .c-about-box-1 { padding-left: 30px; }
+
+    .c-list-item-img-big {
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+
+    .o-img--right { margin-left: 0; }
+}
+
+@media (max-width: 479px) {
+    .o-site-name { font-size: 2.6rem; }
+    .o-site-logo { margin-right: 20px; }
+
+    .c-list-item {
+        flex-direction: column;
+        margin-top: 40px;     
+    }
+
+    .c-list-item-img {
+        margin-right: 0;
+        margin-bottom: 15px;        
+    }
+
+    .c-drinks-nav { height: auto; }
+
+    .c-drinks-nav > ul {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .c-drinks-nav > ul > li { margin-bottom: 10px; }
+    .c-drinks-nav > ul > li > a { display: block; }
+}
