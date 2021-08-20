@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:7.3-stretch-node-browsers
+      #- image: circleci/php:7.3-stretch-node-browsers
     steps:
       - type: shell
         shell: /bin/sh
