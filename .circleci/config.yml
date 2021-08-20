@@ -32,4 +32,5 @@ jobs:
       - run: ssh-keyscan -H 198.23.246.172 >> ~/.ssh/known_hosts
 
       # Finally, upload your files to server.
-      - run: rsync -avce ssh --delete ./dist/ warren@198.23.246.172:/home/warren/httpdocs/restaurant
+      - run: ls -la
+      # - run: rsync -avce ssh --delete ./ warren@198.23.246.172:/home/warren/httpdocs/restaurant
