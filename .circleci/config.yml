@@ -1,25 +1,16 @@
 version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/php:7.3-stretch-node-browsers
+    steps:
+      - type: shell
+        shell: /bin/sh
+        pwd: /
+        command: sudo apt update && sudo apt install git -y && git --version
 
- jobs:
-   build:
-     #...
-   deploy:
-     machine:
-       enabled: true
-     steps:
-       - run:
-           name: Deploy Over SSH
-           command: |
-             ssh $SSH_USER@$SSH_HOST "<remote deploy command>"
+      # Update environment
+      - run: sudo apt update
 
- workflows:
-   version: 2
-   build-and-deploy:
-     jobs:
-       - build
-       - deploy:
-           requires:
-             - build # only deploy once build job has completed
-           filters:
-             branches:
-               only: main # only deploy on the master branch
+      # Install rsync. It will be used to upload our code to server
+      - run: sudo apt-get install rsync
