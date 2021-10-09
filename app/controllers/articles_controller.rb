@@ -7,73 +7,65 @@ class ArticlesController < ApplicationController
 
     def show
         @article = Article.find(params[:id])
+        @mob = params[:mob];
     end
 
     def new
-        @article = Article.new
+        @article = Article.new()
     end
 
     def create
         # newu co params truyen den tu articles
-        @article = Article.new(articles_params)
+        @article = Article.new(articles_params.except(:mob))
         if @article.save
-            p "save"
-            p @article
-            respond_to do |format|
-                format.turbo_stream do
-                    cat = [];
-                    if (@article.categories.kind_of?(Array))
-                        @article.categories.each  do |category| 
-                            if (!category.empty?)
-                                cat_id = category.gsub(" ","_")
-                                cat.push(".#{cat_id.underscore}");
-                            end
-                        #end each categories
+            if (articles_params[:mob].nil?) 
+                p 'new save'
+                respond_to do |format|
+                    format.turbo_stream do
+                        cat = [];
+                        if (@article.categories.kind_of?(Array))
+                            @article.categories.each  do |category| 
+                                if (!category.empty?)
+                                    cat_id = category.gsub(" ","_")
+                                    cat.push(".#{cat_id.underscore}");
+                                end
+                            #end each categories
+                            end 
+                        else 
+                            cat.push(".uncategorized");
+                        # end of if check article.categories
                         end 
-                    else 
-                        cat.push(".uncategorized");
-                    # end of if check article.categories
-                    end 
-                    # render turbo_stream: turbo_stream.append('iced_coffee',
-                    #             partial: "articles/item_id",
-                    #             locals: { article: @article, categories: $categories })
+                        # render turbo_stream: turbo_stream.append('iced_coffee',
+                        #             partial: "articles/item_id",
+                        #             locals: { article: @article, categories: $categories })
 
-                    render partial: "articles/item_id", formats: [:html], locals: { article: @article, type: 'turbo_stream', action: 'append', targets: cat.join(',')}, location:  article_path(@article)
-                    # redirect_to @article
-                    #end turbo format
+                        render partial: "articles/item_id", formats: [:html], locals: { article: @article, type: 'turbo_stream', action: 'append', targets: cat.join(',')}, location:  article_path(@article)
+                        # redirect_to @article
+                        #end turbo format
+                    end
+                        #end format
                 end
-                    #end format
-            end
                 # render partial: "articles/item_id", object: @article, as: "article"
+            else
+                p 'new redirect'
+
+                redirect_to @article
+            end
         else
             # render "new"
-            render turbo_stream: turbo_stream.replace('c-article__form--stream',
-                                partial: "articles/form",
-                                locals: { article: @article, categories: $categories })
+            if (articles_params[:mob].nil?) 
+                p 'new rerender turbo'
 
+                render turbo_stream: turbo_stream.replace('c-article__form--stream',
+                partial: "articles/form",
+                locals: { article: @article, categories: $categories })
+            else
+                p 'new rerender new'
+                render partial: "articles/form", locals: { article: @article, categories: $categories, params: articles_params }, layout: 'application'
+            end
             # end if save
         end
 
-           
-        #neu co params truyen den tu articles va @article update thanh cong
-        # respond_to do |format|
-        #   if @article.save
-        #     # format.html{ redirect_to articles_url, notice: 'Article was successfully created.'}
-        #     format.turbo_stream do
-        #       render turbo_stream: turbo_stream.replace("c-list-item--#{@article.id}",
-        #                           partial: "articles/item_id",
-        #                           locals: { article: @article })
-        #     end
-        
-        #   else
-        #     format.turbo_stream do
-        #       render turbo_stream: turbo_stream.replace('c-article__form--stream',
-        #                           partial: "articles/form",
-        #                           locals: { article: @article, categories: $categories })
-        #     end
-        #   end
-        # end
-    
     end
 
     def edit 
@@ -85,110 +77,54 @@ class ArticlesController < ApplicationController
         # newu co params truyen den tu articles
         @article = Article.find(params[:id])
         @id = @article.id;
-        if @article.update(articles_params)
-            p "save"
-            p @article
-            respond_to do |format|
-                format.turbo_stream do
-                    cat = [];
-                    if (@article.categories.kind_of?(Array))
-                        @article.categories.each  do |category| 
-                            if (!category.empty?)
-                                cat_id = category.gsub(" ","_")
-                                cat.push(".#{cat_id.underscore}");
-                            end
-                        #end each categories
+        if @article.update(articles_params.except(:mob))
+            if (articles_params[:mob].nil?) 
+                respond_to do |format|
+                    format.turbo_stream do
+                        cat = [];
+                        if (@article.categories.kind_of?(Array))
+                            @article.categories.each  do |category| 
+                                if (!category.empty?)
+                                    cat_id = category.gsub(" ","_")
+                                    cat.push(".#{cat_id.underscore}");
+                                end
+                            #end each categories
+                            end 
+                        else 
+                            cat.push(".uncategorized");
+                        # end of if check article.categories
                         end 
-                    else 
-                        cat.push(".uncategorized");
-                    # end of if check article.categories
-                    end 
-                    # render turbo_stream: turbo_stream.append('iced_coffee',
-                    #             partial: "articles/item_id",
-                    #             locals: { article: @article, categories: $categories })
+                        # render turbo_stream: turbo_stream.append('iced_coffee',
+                        #             partial: "articles/item_id",
+                        #             locals: { article: @article, categories: $categories })
 
-                    render partial: "articles/item_id", formats: [:html], locals: { article: @article, type: 'turbo_stream', action: 'replace', targets: ".c-list-item--#{@article.id}"}, location:  article_path(@article)
-                    # redirect_to @article
-                    #end turbo format
+                        render partial: "articles/item_id", formats: [:html], locals: { article: @article, type: 'turbo_stream', action: 'replace', targets: ".c-list-item--#{@article.id}"}, location:  article_path(@article)
+                        # redirect_to @article
+                        #end turbo format
+                    end
+                        #end format
                 end
-                    #end format
+            else
+                redirect_to @article
+                # render partial: "articles/item_id", formats: [:html], locals: { article: @article}, location:  article_path(@article)
             end
-           
-                # render partial: "articles/item_id", object: @article, as: "article"
         else
-            # render "new"
-            render turbo_stream: turbo_stream.replace('c-article__form--stream',
+            # render "edit"
+            
+            if (params[:mob].nil?) 
+                render turbo_stream: turbo_stream.replace('c-article__form--stream',
                                 partial: "articles/form",
                                 locals: { article: @article, categories: $categories })
+            else
+                render partial: "articles/form", locals: { article: @article, categories: $categories }
+            end
 
             # end if save
         end
 
            
         #neu co params truyen den tu articles va @article update thanh cong
-        # respond_to do |format|
-        #   if @article.save
-        #     # format.html{ redirect_to articles_url, notice: 'Article was successfully created.'}
-        #     format.turbo_stream do
-        #       render turbo_stream: turbo_stream.replace("c-list-item--#{@article.id}",
-        #                           partial: "articles/item_id",
-        #                           locals: { article: @article })
-        #     end
-        
-        #   else
-        #     format.turbo_stream do
-        #       render turbo_stream: turbo_stream.replace('c-article__form--stream',
-        #                           partial: "articles/form",
-        #                           locals: { article: @article, categories: $categories })
-        #     end
-        #   end
-        # end
     
-    end
-
-    def update_bak
-    
-        @article = Article.find(params[:id])
-        @id = params[:id]
-        #neu co params truyen den tu articles va @article update thanh cong
-        respond_to do |format|
-        if @article.update(articles_params)
-            # format.html{ redirect_to articles_url, notice: 'Article was successfully created.'}
-            format.turbo_stream do
-                cat = [];
-                if (@article.categories.kind_of?(Array))
-                    @article.categories.each  do |category| 
-                        if (!category.empty?)
-                            cat_id = category.gsub(" ","_")
-                            cat.push(cat_id);
-                        end
-                    #end each categories
-                    end 
-                else 
-                    cat.push(".uncategorized");
-                # end of if check article.categories
-                end 
-                # "<turbo-stream action='replace' targets='c-list-item--#{@id}'>"
-                #     '<template>'
-                    render partial: "articles/item_id", object: @article, as: "article"
-                #     '</template>'
-                # "</turbo-stream>"
-                # render turbo_stream: turbo_stream.replace("c-list-item--#{@id}",
-                #                     partial: "articles/item_id",
-                #                     rel: "test",
-                #                     locals: { article: @article })
-                # end turbor format
-            end
-        
-        else
-            format.turbo_stream do
-            render turbo_stream: turbo_stream.replace('c-article__form--stream',
-                                partial: "articles/form",
-                                locals: { article: @article, categories: $categories })
-            end
-        end
-        end
-        
     end
 
     # delete
@@ -202,6 +138,6 @@ class ArticlesController < ApplicationController
     private 
         def articles_params
         #params permit  tat ca thong so cho  truyen vao
-        params.require(:article).permit(:body,:title, :status, :price, :picture, categories:[])
+        params.require(:article).permit(:body,:title,:mob, :status, :price, :picture, categories:[])
         end
 end

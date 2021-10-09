@@ -1,53 +1,68 @@
 
-<%= form_with model: article, id: 'c-article__form--stream' do |form| %>
-    <div>
-      <%= form.select :categories, options_for_select(categories, article.categories), {}, {:multiple => true, :class => "chzn-select", :style => "width:100%;" } %>
-    </div>
-    <div>
-      <%= form.label :picture %><br>
-      <% if (article.picture) %>
-        <img src="<%= article.picture.thumb.url%>" alt="Image" class="c-list-item-img">
-      <% end %>
-      <%= form.file_field :picture %>
-      <% if form.object.errors %>
-        <% form.object.errors.full_messages_for(:picture).each do |message| %>
-          <div><%= message %></div>
-        <% end %>
-      <% end %>
-    </div>
-    
-    <div>
-      <%= form.label :title %><br>
-      <%= form.text_field :title %>
-      <% if form.object.errors %>
-        <% form.object.errors.full_messages_for(:title).each do |message| %>
-          <div><%= message %></div>
-        <% end %>
-      <% end %>
-    </div>
+<% form_id = 'c-article__form--stream';
+if !params[:mob].nil?
+  form_id = 'c-form--new' %>
+  <div class="c-form c-form--mobile">
+<% end %>
 
-    <div>
-    <%= form.label :price %><br>
-      <%= form.text_field :price %>
-      <% if form.object.errors %>
-        <% form.object.errors.full_messages_for(:price).each do |message| %>
-          <div><%= message %></div>
-        <% end %>
+<h3>Create New Article</h3>
+<%= form_with model: @article, id: form_id do |form| %>
+  <div class="c-form__group">
+    <%= form.label :picture %><br>
+    <% if (article.picture) %>
+      <img src="<%= article.picture.thumb.url%>" alt="Image" class="c-list-item-img">
+    <% end %>
+    <%= form.file_field :picture %>
+    <% if article.errors %>
+      <% article.errors.full_messages_for(:picture).each do |message| %>
+        <div><%= message %></div>
       <% end %>
-    </div>
+    <% end %>
+  </div>
   
-    <div>
-      <%= form.label :body %><br>
-      <textarea class="tinymce" id="article_body" name="article[body]"><%= article.body %></textarea>
-      <% if form.object.errors %>
-        <% form.object.errors.full_messages_for(:body).each do |message| %>
-          <div><%= message %></div>
-        <% end %>
+  <div class="c-form__group">
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% if article.errors %>
+      <% article.errors.full_messages_for(:title).each do |message| %>
+        <div><%= message %></div>
       <% end %>
-    </div>
+    <% end %>
+  </div>
 
-    <div>
-      <button class="c-btn--secondary c-btn" data-action="click->modal#close"> Update </button>
-    </div>
+  <div class="c-form__group">
+  <%= form.label :price %><br>
+    <%= form.text_field :price %>
+    <% if article.errors %>
+      <% article.errors.full_messages_for(:price).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="c-form__group">
+    <%= form.select :categories, options_for_select(categories, article.categories), {}, {:multiple => true, :class => "chzn-select", :style => "width:100%;" } %>
+  </div>
+
+  <div class="c-form__group">
+    <%= form.label :body %><br>
+    <textarea class="tinymce" id="article_body" name="article[body]"><%= article.body %></textarea>
+    <% if article.errors %>
+      <% article.errors.full_messages_for(:body).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    <% end %>
+  </div>
+  
+  <% if !(params[:mob].nil?) %>
+    <%= form.hidden_field :mob , value: params[:mob] %>
   <% end %>
   
+  <div>
+    <button class="c-btn--secondary c-btn" data-turbo="false" data-action="click->modal#close"> Update </button>
+  </div>
+<% end %>
+  
+<% if !params[:mob].nil? %>
+  </div>
+<% end %>

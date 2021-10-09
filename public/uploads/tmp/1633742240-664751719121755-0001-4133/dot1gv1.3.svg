@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="29" height="57" viewBox="0 0 29 57">
+<defs>
+<style>
+    circle{display:none;}
+.dot1g_a,.dot1g_e{fill:none;}.dot1g_a,.dot1g_c{stroke:#3e386d;}.dot1g_b,.dot1g_c{fill:#3e386d;}.dot1g_d{stroke:none;}</style>
+</defs>
+<g class="dot1g_a" transform="translate(17)">
+  <rect class="dot1g_e" x="0.5" y="0.5" width="11" height="11" rx="5.5">
+  <animate role="height" attributeType="XML" attributeName="height" 
+            values="11; 41; 11;11"
+           keyTimes="0; 0.06666666667;0.1333333333; 1"
+           dur="12s"
+           begin="0s"
+        repeatCount="indefinite"/>
+    
+  <animate role="posy" attributeType="XML" attributeName="y" 
+            values="0.5; 0.5; 45.5; 45.5; 45.5; 45.5; 30; 30; 30; 15; 15; 15; 0.5; 0.5; 0.5; 0.5"
+           keyTimes="0; 0.06666666667; 0.1333333333; 0.2; 0.2666666667; 0.3333333333; 0.4; 0.4666666667; 0.5333333333; 0.6; 0.6666666667; 0.7333333333; 0.8; 0.8666666667; 0.9333333333; 1"
+           dur="12s"
+           begin="0s"
+         repeatCount="indefinite"/>
+   
+     <animate role="posX" attributeType="XML" attributeName="x" 
+           values="0.5; 0.5; 0.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; 0.5"
+           keyTimes="0; 0.06666666667; 0.1333333333; 0.2; 0.2666666667; 0.3333333333; 0.4; 0.4666666667; 0.5333333333; 0.6; 0.6666666667; 0.7333333333; 0.8; 0.8666666667; 0.9333333333; 1"
+           dur="12s"
+           begin="0s"
+         repeatCount="indefinite"/>
+  
+  </rect>
+</g>
+  
+ <g class="dot1g_a" transform="translate(17)">
+  <rect class="dot1g_e" x="0.5" y="0.5" width="11" height="11" rx="5.5">
+  <animate role="height" attributeType="XML" attributeName="height" 
+            values="11; 41; 11;11"
+           keyTimes="0; 0.06666666667;0.1333333333; 1"
+           dur="12s"
+           begin="2.4s"
+        repeatCount="indefinite"/>
+    
+  <animate role="posy" attributeType="XML" attributeName="y" 
+            values="0.5; 0.5; 45.5; 45.5; 45.5; 45.5; 30; 30; 30; 15; 15; 15; 0.5; 0.5; 0.5; 0.5"
+           keyTimes="0; 0.06666666667; 0.1333333333; 0.2; 0.2666666667; 0.3333333333; 0.4; 0.4666666667; 0.5333333333; 0.6; 0.6666666667; 0.7333333333; 0.8; 0.8666666667; 0.9333333333; 1"
+           dur="12s"
+           begin="2.4s"
+         repeatCount="indefinite"/>
+   
+     <animate role="posX" attributeType="XML" attributeName="x" 
+           values="0.5; 0.5; 0.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; 0.5"
+           keyTimes="0; 0.06666666667; 0.1333333333; 0.2; 0.2666666667; 0.3333333333; 0.4; 0.4666666667; 0.5333333333; 0.6; 0.6666666667; 0.7333333333; 0.8; 0.8666666667; 0.9333333333; 1"
+           dur="12s"
+           begin="2.4s"
+         repeatCount="indefinite"/>
+  
+  </rect>
+</g>
+  
+<g class="dot1g_a" transform="translate(17)">
+  <rect class="dot1g_e" x="0.5" y="0.5" width="11" height="11" rx="5.5">
+  <animate role="height" attributeType="XML" attributeName="height" 
+            values="11; 41; 11;11"
+           keyTimes="0; 0.06666666667;0.1333333333; 1"
+           dur="12s"
+           begin="4.8s"
+        repeatCount="indefinite"/>
+    
+  <animate role="posy" attributeType="XML" attributeName="y" 
+            values="0.5; 0.5; 45.5; 45.5; 45.5; 45.5; 30; 30; 30; 15; 15; 15; 0.5; 0.5; 0.5; 0.5"
+           keyTimes="0; 0.06666666667; 0.1333333333; 0.2; 0.2666666667; 0.3333333333; 0.4; 0.4666666667; 0.5333333333; 0.6; 0.6666666667; 0.7333333333; 0.8; 0.8666666667; 0.9333333333; 1"
+           dur="12s"
+           begin="4.8s"
+         repeatCount="indefinite"/>
+   
+     <animate role="posX" attributeType="XML" attributeName="x" 
+           values="0.5; 0.5; 0.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; 0.5"
+           keyTimes="0; 0.06666666667; 0.1333333333; 0.2; 0.2666666667; 0.3333333333; 0.4; 0.4666666667; 0.5333333333; 0.6; 0.6666666667; 0.7333333333; 0.8; 0.8666666667; 0.9333333333; 1"
+           dur="12s"
+           begin="4.8s"
+         repeatCount="indefinite"/>
+  
+  </rect>
+</g>
+  
+  <g class="dot1g_c" transform="translate(17)">
+  <rect class="dot1g_c" x="0.5" y="0.5" width="11" height="11" rx="5.5">
+  <animate role="height" attributeType="XML" attributeName="height" 
+            values="11; 41; 11;11"
+           keyTimes="0; 0.06666666667;0.1333333333; 1"
+           dur="12s"
+           begin="7.2s"
+        repeatCount="indefinite"/>
+    
+  <animate role="posy" attributeType="XML" attributeName="y" 
+            values="0.5; 0.5; 45.5; 45.5; 45.5; 45.5; 30; 30; 30; 15; 15; 15; 0.5; 0.5; 0.5; 0.5"
+           keyTimes="0; 0.06666666667; 0.1333333333; 0.2; 0.2666666667; 0.3333333333; 0.4; 0.4666666667; 0.5333333333; 0.6; 0.6666666667; 0.7333333333; 0.8; 0.8666666667; 0.9333333333; 1"
+           dur="12s"
+           begin="7.2s"
+         repeatCount="indefinite"/>
+   
+     <animate role="posX" attributeType="XML" attributeName="x" 
+           values="0.5; 0.5; 0.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; 0.5"
+           keyTimes="0; 0.06666666667; 0.1333333333; 0.2; 0.2666666667; 0.3333333333; 0.4; 0.4666666667; 0.5333333333; 0.6; 0.6666666667; 0.7333333333; 0.8; 0.8666666667; 0.9333333333; 1"
+           dur="12s"
+           begin="7.2s"
+         repeatCount="indefinite"/>
+  
+  </rect>
+</g>
+  
+<g class="dot1g_c" transform="translate(17)">
+  <rect class="dot1g_c" x="0.5" y="0.5" width="11" height="11" rx="5.5">
+  <animate role="height" attributeType="XML" attributeName="height" 
+            values="11; 41; 11;11"
+           keyTimes="0; 0.06666666667;0.1333333333; 1"
+           dur="12s"
+           begin="9.6s"
+        repeatCount="indefinite"/>
+    
+  <animate role="posy" attributeType="XML" attributeName="y" 
+            values="0.5; 0.5; 45.5; 45.5; 45.5; 45.5; 30; 30; 30; 15; 15; 15; 0.5; 0.5; 0.5; 0.5"
+           keyTimes="0; 0.06666666667; 0.1333333333; 0.2; 0.2666666667; 0.3333333333; 0.4; 0.4666666667; 0.5333333333; 0.6; 0.6666666667; 0.7333333333; 0.8; 0.8666666667; 0.9333333333; 1"
+           dur="12s"
+           begin="9.6s"
+         repeatCount="indefinite"/>
+   
+     <animate role="posX" attributeType="XML" attributeName="x" 
+           values="0.5; 0.5; 0.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; -16.5; 0.5"
+           keyTimes="0; 0.06666666667; 0.1333333333; 0.2; 0.2666666667; 0.3333333333; 0.4; 0.4666666667; 0.5333333333; 0.6; 0.6666666667; 0.7333333333; 0.8; 0.8666666667; 0.9333333333; 1"
+           dur="12s"
+           begin="9.6s"
+         repeatCount="indefinite"/>
+  
+  </rect>
+</g>
+ 
+  
+  
+<circle class="b" cx="6" cy="6" r="6" transform="translate(0 45)">
+  <animate role="height" attributeType="XML" attributeName="height" 
+            values="11; 41; 11;11"
+           keyTimes="0; 0.167; 0.33; 1"
+           dur="12s"
+           begin="4.8s"
+        repeatCount="indefinite"/>
+    
+  <animate role="posy" attributeType="XML" attributeName="y" 
+            values="0; 0; 45.5; 45.5; 30; 15;0 "
+           keyTimes="0; 0.167; 0.33; 0.5; 0.67;0.83; 1"
+           dur="12s"
+           begin="4.8s"
+         repeatCount="indefinite"/>
+   
+     <animate role="posX" attributeType="XML" attributeName="x" 
+           values="0.5; 0.5; 0.5; -16.5; -16.5; -16.5; -16.5"
+           keyTimes="0; 0.167; 0.33; 0.5; 0.67;0.83; 1"
+           dur="12s"
+           begin="4.8s"
+         repeatCount="indefinite"/>
+</circle>
+<g class="dot1g_c" transform="translate(0 30)">
+<circle class="dot1g_d" cx="6" cy="6" r="6"/>
+<circle class="dot1g_e" cx="6" cy="6" r="5.5"/>
+</g>
+<g class="dot1g_a">
+<circle class="dot1g_d" cx="6" cy="6" r="6"/>
+<circle class="dot1g_e" cx="6" cy="6" r="5.5"/>
+</g>
+<g class="dot1g_a" transform="translate(0 15)">
+<circle class="dot1g_d" cx="6" cy="6" r="6"/>
+<circle class="dot1g_e" cx="6" cy="6" r="5.5"/>
+</g>
+</svg>

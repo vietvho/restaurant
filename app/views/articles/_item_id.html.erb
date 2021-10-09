@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="c-list-item c-list-item--<%= article.id %>" id="c-list-item--<%= article.id %>"> 
-<!--imgi src="img/iced-americano.png" alt="Image" class="c-list-item-img"-->
+<!--img src="img/iced-americano.png" alt="Image" class="c-list-item-img"-->
 <% if false %>
 # bo if false de hien lai dong duoi. Dirty code :grin
     <% if (article.categories && article.categories.kind_of?(Array)) %>
@@ -23,7 +23,11 @@
     <p class="c-list-item-description"><%= sanitize  article.body %></p>
     <ul class="c-list-item__nav">
         <li>
-            <%= link_to 'Edit', edit_article_path(article), class: "btn btn-primary", data: { action: "click->modal#open", 'turbo-frame': 'c-article__form' } %>
+            <% if (defined?(type) && type == 'turbo_stream') %>
+                <%= link_to 'Edit', edit_article_path(article), class: "btn btn-primary", data: { action: "click->modal#open", 'turbo-frame': 'c-article__form' } %>
+            <% else %>
+                <%= link_to 'Edit', edit_article_path(article), class: "btn btn-primary", data: { action: "click->modal#open", 'turbo-frame': 'c-article__form' } %>
+            <% end %>
         </li>
         <li><%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are You Sure ?"} %></li>
     </ul>

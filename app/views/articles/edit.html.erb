@@ -1,9 +1,18 @@
 
-<%= turbo_frame_tag 'c-article__form' do %>
-  <turbo-stream target="c-article__form--stream" action="replace">
-    <template>
-      <%= render partial: "articles/form", locals: { article: @article, categories: $categories } %>
-    </template>
-  </turbo-stream>
-<% end %>
 
+<% if (params[:mob].nil?) %>
+  <%= turbo_frame_tag 'c-article__form' do %>
+    <turbo-stream target="c-article__form--stream" action="replace">
+      <template>
+        <%= render partial: "articles/form", locals: { article: @article, categories: $categories } %>
+      </template>
+    </turbo-stream>
+  <% end %>
+<% else %>
+  <div class="c-form c-form--mobile">
+    <h3>Edit Article <%= params[:id];%></h3>
+    <%= render partial: "articles/form", locals: { article: @article, categories: $categories } %>
+  </div>
+<% end %>
+    
+    
